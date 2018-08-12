@@ -54,7 +54,7 @@ class AppConfig
     const sessionName = 'twitterrss';
 
     // Maximum number of returned RSS items.
-    const maxResults = 300;
+    const maxResults = 300; // max 800
 
     // This can remove emoji icons from the content for compatibility reasons.
     const removeEmoji = false;

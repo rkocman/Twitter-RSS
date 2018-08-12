@@ -1,0 +1,14 @@
+{contentType text/xml; charset=utf-8}
+{* $tweets array *}
+{import 'parts/tweet.latte'}
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>{TwitterRSS\Constants::title}</title>
+        <pubDate>{date('D, d M Y H:i:s O')}</pubDate>
+        <link>https://www.twitter.com/</link>
+        {foreach $tweets as $tweet}
+            {include tweet, tweet => $tweet}
+        {/foreach}
+    </channel>
+</rss>

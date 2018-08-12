@@ -1,0 +1,14 @@
+{contentType text/html; charset=utf-8}
+{* $media object *}
+{define tweetMediaVideo}
+    {php
+        $best = $media->video_info->variants[0];
+        foreach ($media->video_info->variants as $variant) {
+            if ($variant->content_type !== 'video/mp4') continue;
+            if ($best->content_type !== 'video/mp4') $best = $variant;
+            if ($best->bitrate < $variant->bitrate) $best = $variant;
+        }
+    }
+    <video poster="{$media->media_url_https}" source="{$best->url}" 
+    style="width:{$media->sizes->small->w}px;height:{$media->sizes->small->h}px;" controls></video>
+{/define}

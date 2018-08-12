@@ -1,0 +1,6 @@
+{contentType text/html; charset=utf-8}
+{* $media object *}
+{define tweetMediaPhoto}
+    <img src="{$media->media_url_https}" 
+    style="width:{$media->sizes->small->w}px;height:{$media->sizes->small->h}px;">
+{/define}

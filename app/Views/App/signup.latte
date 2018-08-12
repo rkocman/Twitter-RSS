@@ -1,0 +1,10 @@
+{layout '../@layout.latte'}
+{import 'parts/contentBlock.latte'}
+
+{block content}
+    {var $title = 'Sign Up'}
+    {capture $content}
+        {$form}
+    {/capture}
+    {include contentBlock, title => $title, content => $content, maxWidth => 450, contentLeft => true}
+{/block}

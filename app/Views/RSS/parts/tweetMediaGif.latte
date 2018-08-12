@@ -1,0 +1,6 @@
+{contentType text/html; charset=utf-8}
+{* $media object *}
+{define tweetMediaGif}
+    <video poster="{$media->media_url_https}" source="{$media->video_info->variants[0]->url}" 
+    style="width:{$media->sizes->small->w}px;height:{$media->sizes->small->h}px;" autoplay></video>
+{/define}

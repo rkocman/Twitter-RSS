@@ -1,0 +1,19 @@
+{contentType text/html; charset=utf-8}
+{* $tweet object *}
+{import 'tweetMediaPhoto.latte'}
+{import 'tweetMediaGif.latte'}
+{import 'tweetMediaVideo.latte'}
+{define tweetMedia}
+    {if isset($tweet->extended_entities) && isset($tweet->extended_entities->media)}
+        {foreach $tweet->extended_entities->media as $media}
+            {switch $media->type}
+                {case photo}
+                    {include tweetMediaPhoto, media => $media}
+                {case animated_gif}
+                    {include tweetMediaGif, media => $media}
+                {case video}
+                    {include tweetMediaVideo, media => $media}
+            {/switch}
+        {/foreach}
+    {/if}
+{/define}

@@ -1,0 +1,63 @@
+{layout '../@layout.latte'}
+{import '../App/parts/contentBlock.latte'}
+
+{capture $statusOk}
+    <span class="text-success">OK</span>
+{/capture}
+{capture $statusFailed}
+    <span class="text-danger">FAILED</span>
+{/capture}
+
+{block content}
+    <div class="row mb-3">
+        <div class="col">
+            <h2>Admin Summary</h2>
+        </div>
+    </div>
+
+    {var $title = 'Database Settings'}
+    {capture $content}
+        Database connection: {TwitterRSS\Model\Services\Db::$connected ? $statusOk : $statusFailed}<br>
+        Database table: {$check ? $statusOk : $statusFailed}
+        {if TwitterRSS\Model\Services\Db::$connected && $check === false}
+            (<a href="{TwitterRSS\Utils\Links::generate('admin','create-table')}">Create table</a>)
+        {/if}
+    {/capture}
+    {include contentBlock, title => $title, content => $content}
+
+    {var $title = 'Users'}
+    {capture $content}
+        {if}
+            <div class="table-responsive">
+                <table class="table table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>username</th>
+                            <th>connected</th>
+                            <th>timestamp</th>
+                            <th>counter</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {foreach $summary as $line}
+                        <tr>
+                            <td>{$line['id']}</td>
+                            <td>{$line['username']}</td>
+                            <td>{$line['accessToken'] ? 'Yes' : 'No'}</td>
+                            <td>{$line['ts']->format('Y-m-d H:i:s')}</td>
+                            <td>{$line['counter']}</td>
+                        </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+            </div>
+        {else}
+            <div class="p-3">
+                No registered users.
+            </div>
+        {/if isset($line)}
+    {/capture}
+    {include contentBlock, title => $title, content => $content, noPadding => true}
+
+{/block}

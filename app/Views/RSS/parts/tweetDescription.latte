@@ -1,0 +1,16 @@
+{contentType text/html; charset=utf-8}
+{* $tweet object *}
+{import 'tweetMedia.latte'}
+<table style="border:none;">
+    <tr>
+        <td>
+            <img src="{$tweet->user->profile_image_url_https}" style="width:48px;height:48px;">
+        </td>
+        <td style="vertical-align:middle;">
+            {$tweet->user->name|cleaner}<br>
+            @{$tweet->user->screen_name}
+        </td>
+    </tr>
+</table>
+<p>{$tweet->full_text|cleaner}</p>
+{include tweetMedia, tweet => $tweet}

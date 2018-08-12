@@ -1,0 +1,41 @@
+{layout '../@layout.latte'}
+{import 'parts/contentBlock.latte'}
+
+{block headerContent}
+    <a href="{TwitterRSS\Utils\Links::generate('admin')}">Admin</a>
+{/block}
+
+{block content}
+    {if TwitterRSS\Utils\Sessions::$user->isLogged() === false}
+
+        {var $title = 'Log In'}
+        {capture $content}
+            <a href="{TwitterRSS\Utils\Links::generate('login')}">Log in</a><br>
+            <a href="{TwitterRSS\Utils\Links::generate('rss')}">RSS feed</a><br>
+        {/capture}
+        {include contentBlock, title => $title, content => $content, maxWidth => 250}
+
+        {var $title = 'Sign Up'}
+        {capture $content}
+            <a href="{TwitterRSS\Utils\Links::generate('signup')}">Start</a><br>
+        {/capture}
+        {include contentBlock, title => $title, content => $content, maxWidth => 250}
+
+    {else}
+
+        {capture $title}
+            User: {TwitterRSS\Utils\Sessions::$user->username}
+        {/capture}
+        {capture $content}
+            {if TwitterRSS\Utils\Sessions::$user->isConnected() === false}
+                <a href="{TwitterRSS\Utils\Links::generate('connect')}">Connect with Twitter</a><br>
+            {else}
+                <a href="{TwitterRSS\Utils\Links::generate('rss')}">RSS feed</a><br>
+            {/if}
+            <hr>
+            <a href="{TwitterRSS\Utils\Links::generate('logout')}">Log out</a><br>
+        {/capture}
+        {include contentBlock, title => $title, content => $content, maxWidth => 250}
+
+    {/if}
+{/block}

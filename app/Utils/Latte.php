@@ -9,6 +9,7 @@ namespace TwitterRSS\Utils;
 
 use TwitterRSS\AppConfig;
 use Nette\Forms\Form;
+use TwitterRSS\Constants;
 
 /**
  * Latte engine handler.
@@ -55,6 +56,9 @@ class Latte
     public static function render($template, array $params = []) 
     {
         $latte = self::getLatte();
+        $params['constants'] = Constants::class;
+        $params['links'] = Links::class;
+        $params['sessions'] = Sessions::class;
         $latte->render(Path::getViews().$template, $params);
     }
 
@@ -65,6 +69,9 @@ class Latte
     public static function renderToString($template, array $params = [])
     {
         $latte = self::getLatte();
+        $params['constants'] = Constants::class;
+        $params['links'] = Links::class;
+        $params['sessions'] = Sessions::class;
         return $latte->renderToString(Path::getViews().$template, $params);
     }
 

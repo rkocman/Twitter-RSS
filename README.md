@@ -10,7 +10,7 @@ The resulting RSS resembles the old official export that was available on Twitte
 ## Installation Guide
 
 To set up the application you will need several things beforehand:
-1. A web server that supports PHP (>=5.4) and MySQL
+1. A web server that supports PHP (>=7.1) and MySQL
 2. Dependency Manager for PHP: [Composer](https://getcomposer.org/)
 3. Own [Twitter App](https://developer.twitter.com/) to access Twitter API
 

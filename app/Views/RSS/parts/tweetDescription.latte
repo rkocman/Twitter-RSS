@@ -10,7 +10,17 @@
             {$tweet->user->name|cleaner}<br>
             @{$tweet->user->screen_name}
         </td>
+        {ifset $tweet->retweeted_status}
+        <td> </td>
+        <td>
+            <img src="{$tweetSource->user->profile_image_url_https}" style="width:48px;height:48px;">
+        </td>
+        <td style="vertical-align:middle;">
+            {$tweetSource->user->name|cleaner}<br>
+            @{$tweetSource->user->screen_name}
+        </td>
+        {/ifset}
     </tr>
 </table>
-<p>{$tweet->full_text|cleaner}</p>
-{include tweetMedia, tweet => $tweet}
+<p>{$tweetSource->full_text|cleaner}</p>
+{include tweetMedia, tweet => $tweetSource}

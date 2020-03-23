@@ -1,15 +1,18 @@
 {contentType text/xml; charset=utf-8}
 {* $tweet object *}
 {define tweet}
+    {var $tweetSource = $tweet}
+    {ifset $tweet->retweeted_status}
+        {var $tweetSource = $tweet->retweeted_status}
+    {/ifset}
     <item>
         <title>{$tweet->user->screen_name}: {$tweet->full_text|cleaner}</title>
         <author>{$tweet->user->name|cleaner} (@{$tweet->user->screen_name})</author>
         <pubDate>{date("D, d M Y H:i:s O", strtotime($tweet->created_at))}</pubDate>
-        {var $link = 'https://twitter.com/'.$tweet->user->screen_name.'/status/'.$tweet->id_str}
-        <guid isPermaLink="true">{$link}</guid>
-        <link>{$link}</link>
+        <guid isPermaLink="true">https://twitter.com/{$tweet->user->screen_name}/status/{$tweet->id_str}</guid>
+        <link>https://twitter.com/{$tweetSource->user->screen_name}/status/{$tweetSource->id_str}</link>
         <description><![CDATA[
-            {TwitterRSS\Utils\Latte::renderToString('RSS/parts/tweetDescription.latte', ['tweet' => $tweet])|noescape}
+            {TwitterRSS\Utils\Latte::renderToString('RSS/parts/tweetDescription.latte', ['tweet' => $tweet, 'tweetSource' => $tweetSource])|noescape}
         ]]></description>
     </item>
 {/define}

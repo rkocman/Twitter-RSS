@@ -86,6 +86,9 @@ class Twitter
                 $params['max_id'] = $maxId;
             }
             $response = self::$connection->get('statuses/home_timeline', $params);
+            if (self::$connection->getLastHttpCode() != 200) {
+                return $tweets;
+            }
             if (isset($maxId)) {
                 unset($response[0]);
             }

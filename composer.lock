@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24492c73267c18e8887a2b04ee77d495",
+    "content-hash": "b0ebdbb448285be85aa1a1dbef9125f9",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -62,32 +62,34 @@
         },
         {
             "name": "dibi/dibi",
-            "version": "v4.0.1",
+            "version": "v4.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dg/dibi.git",
-                "reference": "811974139eb2b8f16fd0aa6ff104de1d416b8b35"
+                "reference": "d70e274244ce3197d50d9e677872b96e127e6396"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dg/dibi/zipball/811974139eb2b8f16fd0aa6ff104de1d416b8b35",
-                "reference": "811974139eb2b8f16fd0aa6ff104de1d416b8b35",
+                "url": "https://api.github.com/repos/dg/dibi/zipball/d70e274244ce3197d50d9e677872b96e127e6396",
+                "reference": "d70e274244ce3197d50d9e677872b96e127e6396",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": ">=7.2"
             },
             "replace": {
                 "dg/dibi": "*"
             },
             "require-dev": {
+                "nette/di": "^3.0",
                 "nette/tester": "~2.0",
+                "phpstan/phpstan": "^0.12",
                 "tracy/tracy": "~2.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -98,8 +100,8 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
+                "GPL-2.0-only",
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -122,43 +124,55 @@
                 "sqlite",
                 "sqlsrv"
             ],
-            "time": "2018-09-17T11:50:54+00:00"
+            "support": {
+                "issues": "https://github.com/dg/dibi/issues",
+                "source": "https://github.com/dg/dibi/tree/v4.2.5"
+            },
+            "time": "2021-11-29T12:48:16+00:00"
         },
         {
             "name": "latte/latte",
-            "version": "v2.4.8",
+            "version": "v2.10.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "95ca6bab6caaa3efa3b5d7d4537f9a45cb89ed90"
+                "reference": "596b28bf098ebb852732d60b00538139a009c4db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/95ca6bab6caaa3efa3b5d7d4537f9a45cb89ed90",
-                "reference": "95ca6bab6caaa3efa3b5d7d4537f9a45cb89ed90",
+                "url": "https://api.github.com/repos/nette/latte/zipball/596b28bf098ebb852732d60b00538139a009c4db",
+                "reference": "596b28bf098ebb852732d60b00538139a009c4db",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-tokenizer": "*",
-                "php": ">=5.4.4"
+                "php": ">=7.1 <8.2"
             },
             "conflict": {
                 "nette/application": "<2.4.1"
             },
             "require-dev": {
-                "nette/tester": "~1.7",
+                "nette/php-generator": "^3.3.4",
+                "nette/tester": "~2.0",
+                "nette/utils": "^3.0",
+                "phpstan/phpstan": "^0.12",
                 "tracy/tracy": "^2.3"
             },
             "suggest": {
                 "ext-fileinfo": "to use filter |datastream",
+                "ext-iconv": "to use filters |reverse, |substring",
                 "ext-mbstring": "to use filters like lower, upper, capitalize, ...",
+                "nette/php-generator": "to use tag {templatePrint}",
                 "nette/utils": "to use filter |webalize"
             },
+            "bin": [
+                "bin/latte-lint"
+            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.10-dev"
                 }
             },
             "autoload": {
@@ -169,8 +183,8 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
+                "GPL-2.0-only",
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -194,7 +208,11 @@
                 "template",
                 "twig"
             ],
-            "time": "2018-06-03T17:34:15+00:00"
+            "support": {
+                "issues": "https://github.com/nette/latte/issues",
+                "source": "https://github.com/nette/latte/tree/v2.10.8"
+            },
+            "time": "2022-01-04T14:13:28+00:00"
         },
         {
             "name": "nette/caching",
@@ -328,33 +346,34 @@
         },
         {
             "name": "nette/finder",
-            "version": "v2.4.2",
+            "version": "v2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/finder.git",
-                "reference": "ee951a656cb8ac622e5dd33474a01fd2470505a0"
+                "reference": "64dc25b7929b731e72a1bc84a9e57727f5d5d3e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/finder/zipball/ee951a656cb8ac622e5dd33474a01fd2470505a0",
-                "reference": "ee951a656cb8ac622e5dd33474a01fd2470505a0",
+                "url": "https://api.github.com/repos/nette/finder/zipball/64dc25b7929b731e72a1bc84a9e57727f5d5d3e8",
+                "reference": "64dc25b7929b731e72a1bc84a9e57727f5d5d3e8",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "~2.4",
-                "php": ">=5.6.0"
+                "nette/utils": "^2.4 || ^3.0",
+                "php": ">=7.1"
             },
             "conflict": {
                 "nette/nette": "<2.2"
             },
             "require-dev": {
-                "nette/tester": "~2.0",
+                "nette/tester": "^2.0",
+                "phpstan/phpstan": "^0.12",
                 "tracy/tracy": "^2.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -365,8 +384,8 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
+                "GPL-2.0-only",
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -386,7 +405,11 @@
                 "iterator",
                 "nette"
             ],
-            "time": "2018-06-28T11:49:23+00:00"
+            "support": {
+                "issues": "https://github.com/nette/finder/issues",
+                "source": "https://github.com/nette/finder/tree/v2.5.3"
+            },
+            "time": "2021-12-12T17:43:24+00:00"
         },
         {
             "name": "nette/forms",
@@ -530,23 +553,23 @@
         },
         {
             "name": "nette/robot-loader",
-            "version": "v3.1.0",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/robot-loader.git",
-                "reference": "fc76c70e740b10f091e502b2e393d0be912f38d4"
+                "reference": "d9a653a1f0f347fe4c12e98b39b2adeb59ba0d96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/robot-loader/zipball/fc76c70e740b10f091e502b2e393d0be912f38d4",
-                "reference": "fc76c70e740b10f091e502b2e393d0be912f38d4",
+                "url": "https://api.github.com/repos/nette/robot-loader/zipball/d9a653a1f0f347fe4c12e98b39b2adeb59ba0d96",
+                "reference": "d9a653a1f0f347fe4c12e98b39b2adeb59ba0d96",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
                 "nette/finder": "^2.3 || ^3.0",
                 "nette/utils": "^2.4 || ^3.0",
-                "php": ">=5.6.0"
+                "php": ">=5.6 <8.1"
             },
             "conflict": {
                 "nette/nette": "<2.2"
@@ -591,7 +614,11 @@
                 "nette",
                 "trait"
             ],
-            "time": "2018-08-13T14:19:06+00:00"
+            "support": {
+                "issues": "https://github.com/nette/robot-loader/issues",
+                "source": "https://github.com/nette/robot-loader/tree/v3.1.3"
+            },
+            "time": "2021-03-06T15:39:14+00:00"
         },
         {
             "name": "nette/security",
@@ -741,35 +768,39 @@
         },
         {
             "name": "tracy/tracy",
-            "version": "v2.5.5",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "35fa649b483b28e16f61de07110ea0585fc8d6ea"
+                "reference": "551a7d936dfbd7075ced9a604b9527d1f7bfa8b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/35fa649b483b28e16f61de07110ea0585fc8d6ea",
-                "reference": "35fa649b483b28e16f61de07110ea0585fc8d6ea",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/551a7d936dfbd7075ced9a604b9527d1f7bfa8b4",
+                "reference": "551a7d936dfbd7075ced9a604b9527d1f7bfa8b4",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-session": "*",
-                "php": ">=5.4.4"
+                "php": ">=7.2 <8.2"
+            },
+            "conflict": {
+                "nette/di": "<3.0"
             },
             "require-dev": {
-                "nette/di": "~2.3",
-                "nette/tester": "~1.7",
-                "nette/utils": "~2.3"
-            },
-            "suggest": {
-                "https://nette.org/donate": "Please support Tracy via a donation"
+                "latte/latte": "^2.5",
+                "nette/di": "^3.0",
+                "nette/mail": "^3.0",
+                "nette/tester": "^2.2",
+                "nette/utils": "^3.0",
+                "phpstan/phpstan": "^1.0",
+                "psr/log": "^1.0 || ^2.0 || ^3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.9-dev"
                 }
             },
             "autoload": {
@@ -777,7 +808,7 @@
                     "src"
                 ],
                 "files": [
-                    "src/shortcuts.php"
+                    "src/Tracy/functions.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -794,7 +825,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "😎 Tracy: the addictive tool to ease debugging PHP code for cool developers. Friendly design, logging, profiler, advanced features like debugging AJAX calls or CLI support. You will love it.",
+            "description": "😎  Tracy: the addictive tool to ease debugging PHP code for cool developers. Friendly design, logging, profiler, advanced features like debugging AJAX calls or CLI support. You will love it.",
             "homepage": "https://tracy.nette.org",
             "keywords": [
                 "Xdebug",
@@ -803,7 +834,11 @@
                 "nette",
                 "profiler"
             ],
-            "time": "2018-11-05T15:10:59+00:00"
+            "support": {
+                "issues": "https://github.com/nette/tracy/issues",
+                "source": "https://github.com/nette/tracy/tree/v2.9.0"
+            },
+            "time": "2021-12-20T18:19:46+00:00"
         }
     ],
     "packages-dev": [],
@@ -815,6 +850,7 @@
     "platform": [],
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.1"
-    }
+        "php": "7.3"
+    },
+    "plugin-api-version": "2.1.0"
 }

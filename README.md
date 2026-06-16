@@ -4,7 +4,9 @@ This application creates an RSS feed of your home timeline. It is designed as a 
 
 The resulting RSS resembles the old official export that was available on Twitter in the past. But it also incorporates new features that did not exist back then (long tweets, media content).
 
-**Project status:** completed (maintained)
+**Project status:** completed (archived)
+
+**Why archived:** The Twitter (X) API now offers only paid access. The pricing seems too high for a personal RSS feed.
 
 
 ## Installation Guide
